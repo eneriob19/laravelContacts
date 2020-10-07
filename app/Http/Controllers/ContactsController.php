@@ -62,6 +62,7 @@ class ContactsController extends Controller{
             $newContact->FirstName      = $req->input('First_Name');
             $newContact->MiddleName     = $req->input('Middle_Name');
             $newContact->LastName       = $req->input('Last_Name');
+            $newContact->Email          = ($req->input('Email') == null ? '' : $req->input('Email'));
             $newContact->ContactNumber  = $req->input('Contact_Number');
             $newContact->Street         = $req->input('Street');
             $newContact->City           = $req->input('City');
@@ -97,6 +98,7 @@ class ContactsController extends Controller{
             $existingContact->FirstName      = $req->input('First_Name');
             $existingContact->MiddleName     = $req->input('Middle_Name');
             $existingContact->LastName       = $req->input('Last_Name');
+            $existingContact->Email          = $req->input('Email');
             $existingContact->ContactNumber  = $req->input('Contact_Number');
             $existingContact->Street         = $req->input('Street');
             $existingContact->City           = $req->input('City');

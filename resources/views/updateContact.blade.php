@@ -22,6 +22,9 @@
             <td>*Last Name</td><td><input type="text" name="Last Name" value="{{ $contact->LastName }}"></td>
         </tr>
         <tr>
+            <td>Email</td><td><input type="email" name="Email" value="{{ $contact->Email }}"></td>
+        </tr>
+        <tr>
             <td>Contact Number</td><td><input type="text" name="Contact Number" value="{{ '0'.$contact->ContactNumber }}"></td>
         </tr>
         <tr>

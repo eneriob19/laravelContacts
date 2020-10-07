@@ -8,6 +8,7 @@
             <th>First Name</th>
             <th>Middle Name</th>
             <th>Last Name</th>
+            <th>Email</th>
             <th>Contact Number</th>
             <th>Street</th>
             <th>City</th>
@@ -23,6 +24,7 @@
                 <td>{{ $contact->FirstName }}</td>
                 <td>{{ $contact->MiddleName }}</td>
                 <td>{{ $contact->LastName }}</td>
+                <td>{{ $contact->Email }}</td>
                 <td>0{{ $contact->ContactNumber }}</td>
                 <td>{{ $contact->Street }}</td>
                 <td>{{ $contact->City }}</td>

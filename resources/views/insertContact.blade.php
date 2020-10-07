@@ -19,6 +19,9 @@
             <td>*Last Name</td><td><input type="text" name="Last Name"></td>
         </tr>
         <tr>
+            <td>Email</td><td><input type="email" name="Email"></td>
+        </tr>
+        <tr>
             <td>Contact Number</td><td><input type="text" name="Contact Number"></td>
         </tr>
         <tr>
