@@ -14,6 +14,7 @@
             <th>State</th>
             <th>Postal</th>
             <th>Country</th>
+            <th>Notes</th>
             <th>Actions</th>
         </thead>
         <tbody>
@@ -28,7 +29,8 @@
                 <td>{{ $contact->State }}</td>
                 <td>{{ $contact->Postal }}</td>
                 <td>{{ $contact->Country }}</td>
-                <td><a href="{{ url('/contact/'.$contact->id) }}">Edit</a>&nbsp;&nbsp;<a href="{{ url('/contact/delete/'.$contact->id) }}">Delete</a></button>
+                <td>{{ $contact->Notes }}</td>
+                <td><a href="{{ url('/contact/'.$contact->id) }}">View/Edit</a>&nbsp;&nbsp;<a href="{{ url('/contact/delete/'.$contact->id) }}">Delete</a></button>
             </tr>
             @endforeach
         </tbody>

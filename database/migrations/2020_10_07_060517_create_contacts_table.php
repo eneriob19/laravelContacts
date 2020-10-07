@@ -18,12 +18,13 @@ class CreateContactsTable extends Migration
             $table->string('FirstName')->nullable();
             $table->string('MiddleName')->nullable();
             $table->string('LastName');
-            $table->integer('ContactNumber')->nullable();
+            $table->bigInteger('ContactNumber')->nullable();
             $table->string('Street')->nullable();
             $table->string('City')->nullable();
             $table->string('State')->nullable();
             $table->string('Postal')->nullable();
             $table->string('Country')->nullable();
+            $table->text('Notes')->nullable();
             $table->timestamps();
         });
     }

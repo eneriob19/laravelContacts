@@ -2,6 +2,7 @@
 @extends('layout')
 
 @section('content')
+    <p>*Required</p><br/>
     <form action="{{url('/newContact/insert')}}" method="POST">
     {{ csrf_field() }}
     <table cellspacing="50">
@@ -32,7 +33,10 @@
         <tr>
             <td>Country</td><td><input type="text" name="Country"></td>
         </tr>
+        <tr>
+            <td>Notes</td><td><textarea name="Notes"></textarea></td>
+        </tr>
     </table>
-    <button type="submit">Save Contact</button>
+    <button type="submit">Save Contact</button>&nbsp;&nbsp;<a href="{{ url('/contacts') }}">Cancel</a>
     </form>
 @stop

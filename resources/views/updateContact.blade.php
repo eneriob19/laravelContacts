@@ -2,6 +2,7 @@
 @extends('layout')
 
 @section('content')
+    <p>*Required</p><br/>
     <form action="{{url('/contact/update/'.$contact->id)}}" method="POST">
     {{ csrf_field() }}
     <table cellspacing="50">
@@ -15,7 +16,7 @@
             <td>*Last Name</td><td><input type="text" name="Last Name" value="{{ $contact->LastName }}"></td>
         </tr>
         <tr>
-            <td>Contact Number</td><td><input type="text" name="Contact Number" value="{{ $contact->ContactNumber }}"></td>
+            <td>Contact Number</td><td><input type="text" name="Contact Number" value="{{ '0'.$contact->ContactNumber }}"></td>
         </tr>
         <tr>
             <td>Street</td><td><input type="text" name="Street" value="{{ $contact->Street }}"></td>
@@ -32,7 +33,10 @@
         <tr>
             <td>Country</td><td><input type="text" name="Country" value="{{ $contact->Country }}"></td>
         </tr>
+        <tr>
+            <td>Notes</td><td><textarea name="Notes">{{ $contact->Notes }}</textarea></td>
+        </tr>
     </table>
-    <button type="submit">Save Contact</button>
+    <button type="submit">Save Contact</button>&nbsp;&nbsp;<a href="{{ url('/contacts') }}">Cancel</a>
     </form>
 @stop
