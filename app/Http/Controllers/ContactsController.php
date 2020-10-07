@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contacts;
+use Illuminate\Support\Facades\Storage;
 
 /*
 * @Class Name: ContactsController
@@ -29,7 +30,7 @@ class ContactsController extends Controller{
     }
 
     /*
-    * @Method Name: list
+    * @Method Name: getContact
     * @Autthor: Butch B. Enerio
     * @Created date: October 7, 2020
     * @Description: method for getting the single contact
@@ -49,6 +50,11 @@ class ContactsController extends Controller{
     * @Description: method for inserting new contact
     */
     public function insertContact(Request $req){
+        $url = '';
+        if($req->hasFile('Photo')){
+            $path = $req->file('Photo')->store('public');
+            $url = Storage::url($path);
+        }
 
         if($req->input('Last_Name') != null || $req->input('Last_Name') != ''){
 
@@ -63,6 +69,7 @@ class ContactsController extends Controller{
             $newContact->Postal         = $req->input('Postal');
             $newContact->Country        = $req->input('Country');
             $newContact->Notes          = $req->input('Notes');
+            $newContact->Avatar         = $url;
             $newContact->save();
 
             return redirect('contacts');
@@ -78,6 +85,11 @@ class ContactsController extends Controller{
     * @Description: method to update existing contact
     */
     public function updateContact(Request $req,$id){
+        $url = '';
+        if($req->hasFile('Photo')){
+            $path = $req->file('Photo')->store('public');
+            $url = Storage::url($path);
+        }
 
         if($req->input('Last_Name') != null || $req->input('Last_Name') != ''){
 
@@ -92,6 +104,7 @@ class ContactsController extends Controller{
             $existingContact->Postal         = $req->input('Postal');
             $existingContact->Country        = $req->input('Country');
             $existingContact->Notes          = $req->input('Notes');
+            $existingContact->Avatar         = ( $url == '' ? $existingContact->Avatar : $url);
             $existingContact->update();
 
             return redirect('contacts');

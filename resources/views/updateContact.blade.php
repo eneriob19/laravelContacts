@@ -3,11 +3,17 @@
 
 @section('content')
     <p>*Required</p><br/>
-    <form action="{{url('/contact/update/'.$contact->id)}}" method="POST">
+    <form action="{{url('/contact/update/'.$contact->id)}}" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     <table cellspacing="50">
         <tr>
-        <td>First Name</td><td><input type="text" name="First Name" value="{{ $contact->FirstName }}"></td>
+            <td><img src="{{ asset($contact->Avatar) }}"/></td><td></td>
+        </tr>
+        <tr>
+            <td>Avatar</td><td><input type="file" name="Photo" id="Photo"></td>
+        </tr>
+        <tr>
+            <td>First Name</td><td><input type="text" name="First Name" value="{{ $contact->FirstName }}"></td>
         </tr>
         <tr>
             <td>MiddleName Name</td><td><input type="text" name="Middle Name" value="{{ $contact->MiddleName }}"></td>

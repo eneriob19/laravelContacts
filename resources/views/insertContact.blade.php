@@ -3,9 +3,12 @@
 
 @section('content')
     <p>*Required</p><br/>
-    <form action="{{url('/newContact/insert')}}" method="POST">
+    <form action="{{url('/newContact/insert')}}" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     <table cellspacing="50">
+        <tr>
+            <td>Avatar</td><td><input type="file" name="Photo" id="Photo"></td>
+        </tr>
         <tr>
             <td>First Name</td><td><input type="text" name="First Name"></td>
         </tr>

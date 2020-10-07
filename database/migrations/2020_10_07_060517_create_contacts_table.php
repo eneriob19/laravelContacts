@@ -25,6 +25,7 @@ class CreateContactsTable extends Migration
             $table->string('Postal')->nullable();
             $table->string('Country')->nullable();
             $table->text('Notes')->nullable();
+            $table->String('Avatar',255)->nullable();
             $table->timestamps();
         });
     }
